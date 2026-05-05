@@ -2,7 +2,8 @@
 
 Modified [Claude Code](https://docs.claude.com/en/docs/claude-code/overview) system prompts that remove the "be brief, be minimal" directives and replace them with instructions to be thorough. These are the actual files I use daily. Nothing here is cleaned up for public consumption — this is the live set, including all in-progress un-nerfs.
 
-Currently aligned with **Claude Code v2.1.118**.
+> [!NOTE]
+> Currently aligned with **Claude Code v2.1.128**.
 
 |  |  |
 |---|---|
