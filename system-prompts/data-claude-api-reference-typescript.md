@@ -3,7 +3,7 @@ name: 'Data: Claude API reference — TypeScript'
 description: >-
   TypeScript SDK reference including installation, client initialization, basic
   requests, thinking, and multi-turn conversation
-ccVersion: 2.1.111
+ccVersion: 2.1.128
 -->
 # Claude API — TypeScript
 
@@ -304,7 +304,18 @@ The \`stop_reason\` field in the response indicates why the model stopped genera
 | \`stop_sequence\` | Hit a custom stop sequence                                      |
 | \`tool_use\`      | Claude wants to call a tool — execute it and continue           |
 | \`pause_turn\`    | Model paused and can be resumed (agentic flows)                 |
-| \`refusal\`       | Claude refused for safety reasons — output may not match schema |
+| \`refusal\`       | Claude refused for safety reasons — check \`stop_details\`        |
+
+### Structured Stop Details
+
+When \`stop_reason\` is \`"refusal"\`, the response includes a \`stop_details\` object with structured information about the refusal:
+
+\`\`\`typescript
+if (response.stop_reason === "refusal" && response.stop_details) {
+  console.log(\`Category: \${response.stop_details.category}\`); // "cyber" | "bio" | null
+  console.log(\`Explanation: \${response.stop_details.explanation}\`);
+}
+\`\`\`
 
 ---
 

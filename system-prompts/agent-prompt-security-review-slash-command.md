@@ -3,10 +3,12 @@ name: 'Agent Prompt: /security-review slash command'
 description: >-
   Comprehensive security review prompt for analyzing code changes with focus on
   exploitable vulnerabilities
-ccVersion: 2.1.108
+ccVersion: 2.1.120
+variables:
+  - ALLOWED_TOOLS
 -->
 ---
-allowed-tools: Bash(git diff *), Bash(git status *), Bash(git log *), Bash(git show *), Bash(git remote show *), Read, Glob, Grep, LS, Task
+allowed-tools: ${ALLOWED_TOOLS}, Read, Glob, Grep, LS, Task
 description: Complete a security review of the pending changes on the current branch
 ---
 

@@ -3,7 +3,7 @@ name: 'Data: Managed Agents environments and resources'
 description: >-
   Reference documentation covering Managed Agents environments, file resources,
   GitHub repository mounting, and the Files API with SDK examples
-ccVersion: 2.1.105
+ccVersion: 2.1.119
 -->
 # Managed Agents — Environments & Resources
 
@@ -60,7 +60,7 @@ const env = await client.beta.environments.create({
 
 ## Resources
 
-Attach files and GitHub repositories to a session. **Session creation blocks until all resources are mounted** — the container won't go \`running\` until every file and repo is in place. Max **999 file resources** per session. Multiple GitHub repositories per session are supported.
+Attach files, GitHub repositories, and memory stores to a session. **Session creation blocks until all resources are mounted** — the container won't go \`running\` until every file and repo is in place. Max **999 file resources** per session. Multiple GitHub repositories per session are supported. For \`type: "memory_store"\` resources (persistent cross-session memory — max 8 per session), see \`shared/managed-agents-memory.md\`.
 
 ### File Uploads (input — host → agent)
 

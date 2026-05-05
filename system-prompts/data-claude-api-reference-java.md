@@ -3,7 +3,7 @@ name: 'Data: Claude API reference — Java'
 description: >-
   Java SDK reference including installation, client initialization, basic
   requests, streaming, and beta tool use
-ccVersion: 2.1.83
+ccVersion: 2.1.128
 -->
 # Claude API — Java
 
@@ -17,14 +17,14 @@ Maven:
 <dependency>
     <groupId>com.anthropic</groupId>
     <artifactId>anthropic-java</artifactId>
-    <version>2.17.0</version>
+    <version>2.27.0</version>
 </dependency>
 \`\`\`
 
 Gradle:
 
 \`\`\`groovy
-implementation("com.anthropic:anthropic-java:2.17.0")
+implementation("com.anthropic:anthropic-java:2.27.0")
 \`\`\`
 
 ## Client Initialization
@@ -366,7 +366,7 @@ import com.anthropic.models.messages.CodeExecutionTool20260120;
 .addTool(CodeExecutionTool20260120.builder().build())
 \`\`\`
 
-Also available: \`WebFetchTool20260209\`, \`MemoryTool20250818\`, \`ToolSearchToolBm25_20251119\`.
+Also available: \`WebFetchTool20260209\`, \`MemoryTool20250818\`, \`ToolSearchToolBm25_20251119\`. For the advisor tool, use \`BetaAdvisorTool20260301\` in the beta namespace.
 
 ### Beta namespace (MCP, compaction)
 
@@ -410,6 +410,35 @@ for (ContentBlock block : response.content()) {
             System.out.println("exit: " + result.returnCode());
         });
     });
+}
+\`\`\`
+
+---
+
+## Stop Details
+
+When \`stopReason()\` is \`"refusal"\`, the response includes structured \`stopDetails()\`:
+
+\`\`\`java
+response.stopDetails().ifPresent(details -> {
+    System.out.println("Category: " + details.category());
+    System.out.println("Explanation: " + details.explanation());
+});
+\`\`\`
+
+---
+
+## Error Type
+
+\`AnthropicServiceException\` exposes \`.errorType()\` returning \`Optional<ErrorType>\` for programmatic error classification:
+
+\`\`\`java
+try {
+    client.messages().create(params);
+} catch (AnthropicServiceException e) {
+    e.errorType().ifPresent(type ->
+        System.out.println("Error type: " + type)  // RATE_LIMIT_ERROR, OVERLOADED_ERROR, etc.
+    );
 }
 \`\`\`
 

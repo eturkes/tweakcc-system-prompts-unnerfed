@@ -1,9 +1,9 @@
 <!--
 name: 'Tool Description: WebSearch'
 description: Tool description for web search functionality
-ccVersion: 2.1.42
+ccVersion: 2.1.120
 variables:
-  - GET_CURRENT_MONTH_YEAR
+  - CURRENT_MONTH_YEAR
 -->
 
 - Allows Claude to search the web and use the results to inform responses
@@ -29,5 +29,5 @@ Usage notes:
   - Web search is only available in the US
 
 IMPORTANT - Use the correct year in search queries:
-  - The current month is ${GET_CURRENT_MONTH_YEAR()}. You MUST use this year when searching for recent information, documentation, or current events.
+  - The current month is ${CURRENT_MONTH_YEAR}. You MUST use this year when searching for recent information, documentation, or current events.
   - Example: If the user asks for "latest React docs", search for "React documentation" with the current year, NOT last year

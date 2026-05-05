@@ -3,7 +3,7 @@ name: 'Data: Tool use concepts'
 description: >-
   Conceptual foundations of tool use with the Claude API including tool
   definitions, tool choice, and best practices
-ccVersion: 2.1.111
+ccVersion: 2.1.128
 -->
 # Tool Use Concepts
 
@@ -256,6 +256,26 @@ Context editing clears stale tool results and thinking blocks from the transcrip
 For full documentation, use WebFetch:
 
 - URL: \`https://platform.claude.com/docs/en/build-with-claude/context-editing\`
+
+---
+
+## Server-Side Tools: Advisor (Beta)
+
+The advisor tool lets Claude consult a secondary model during a conversation. The advisor runs its own API call with a model you specify and returns its analysis to the primary model. Use it when you want a second opinion, specialized expertise, or cross-model verification without managing the orchestration yourself.
+
+### Tool Definition
+
+\`\`\`json
+{
+  "type": "advisor_20260301",
+  "name": "advisor",
+  "model": "claude-sonnet-4-6"
+}
+\`\`\`
+
+The \`model\` parameter is required — it specifies which model the advisor uses for its own inference. Optional fields: \`caching\`, \`max_uses\`, \`allowed_callers\`, \`defer_loading\`, \`strict\`.
+
+**Beta header required:** \`advisor-tool-2026-03-01\`. The SDK sets this automatically when using \`client.beta.messages.create()\` with advisor tools.
 
 ---
 

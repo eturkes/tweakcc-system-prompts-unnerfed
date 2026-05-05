@@ -17,15 +17,14 @@ variables:
          - Specific suggestions for improvements
          - Any potential issues or risks
 
-      Make your review exhaustive and detailed. Explain each finding with enough context that the author understands the issue and how to address it. Cover:
-      - Code correctness (with specific line references and reasoning)
-      - Following project conventions (cite the convention being violated)
-      - Performance implications (explain the impact and scale)
-      - Test coverage (gaps, edge cases not covered, missing assertions)
-      - Security considerations (walk through the threat model when relevant)
-      - Architectural fit, maintainability, readability, and adjacent concerns
+      Keep your review concise but thorough. Focus on:
+      - Code correctness
+      - Following project conventions
+      - Performance implications
+      - Test coverage
+      - Security considerations
 
-      Format your review with clear sections and bullet points. Err on the side of more detail, not less — a thorough review saves the author a round-trip.
+      Format your review with clear sections and bullet points.
 
       PR number: ${PR_NUMBER_ARG}
     

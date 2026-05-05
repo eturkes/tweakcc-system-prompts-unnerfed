@@ -3,7 +3,7 @@ name: 'Data: HTTP error codes reference'
 description: >-
   Reference for HTTP error codes returned by the Claude API with common causes
   and handling strategies
-ccVersion: 2.1.111
+ccVersion: 2.1.128
 -->
 # HTTP Error Codes Reference
 
@@ -192,8 +192,10 @@ thinking: budget_tokens=10000, max_tokens=16000
 | 401       | `Anthropic.AuthenticationError`   | `anthropic.AuthenticationError`   |
 | 403       | `Anthropic.PermissionDeniedError` | `anthropic.PermissionDeniedError` |
 | 404       | `Anthropic.NotFoundError`         | `anthropic.NotFoundError`         |
+| 413       | `Anthropic.RequestTooLargeError`  | `anthropic.RequestTooLargeError`  |
 | 429       | `Anthropic.RateLimitError`        | `anthropic.RateLimitError`        |
 | 500+      | `Anthropic.InternalServerError`   | `anthropic.InternalServerError`   |
+| 529       | `Anthropic.OverloadedError`       | `anthropic.OverloadedError`       |
 | Any       | `Anthropic.APIError`              | `anthropic.APIError`              |
 
 ```typescript
@@ -218,3 +220,15 @@ try {
 ```
 
 All exception classes extend `Anthropic.APIError`, which has a `status` property. Use `instanceof` checks from most specific to least specific (e.g., check `RateLimitError` before `APIError`).
+
+### Error `.type` Field
+
+All `APIStatusError` subclasses now expose a `.type` property (Python: `.type`, TypeScript: `.type`, Java: `.errorType()`, Go: `.Type()`, Ruby: `.type`, PHP: `.type`) that returns the API error type string (e.g., `\"invalid_request_error\"`, `\"authentication_error\"`, `\"rate_limit_error\"`, `\"overloaded_error\"`). Use this for programmatic error classification when you need finer granularity than the HTTP status code — for example, distinguishing `\"billing_error\"` from `\"permission_error\"` (both map to 403).
+
+```python
+except anthropic.APIStatusError as e:
+    if e.type == \"rate_limit_error\":
+        # handle rate limiting
+    elif e.type == \"overloaded_error\":
+        # handle overload
+```
