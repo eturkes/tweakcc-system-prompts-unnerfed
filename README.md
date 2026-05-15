@@ -3,7 +3,7 @@
 Modified [Claude Code](https://docs.claude.com/en/docs/claude-code/overview) system prompts that remove the "be brief, be minimal" directives and replace them with instructions to be thorough. These are the actual files I use daily. Nothing here is cleaned up for public consumption — this is the live set, including all in-progress un-nerfs.
 
 > [!NOTE]
-> Currently aligned with **Claude Code v2.1.140**.
+> Currently aligned with **Claude Code v2.1.142**.
 
 |  |  |
 |---|---|
@@ -19,7 +19,7 @@ Modified [Claude Code](https://docs.claude.com/en/docs/claude-code/overview) sys
 
 You need [tweakcc](https://github.com/Piebald-AI/tweakcc) to patch these into your Claude Code binary.
 
-Grab the un-nerfed prompts as a release zip — no clone needed. From [Releases](https://github.com/BenIsLegit/tweakcc-system-prompts-unnerfed/releases), pick the tag whose Claude Code version matches yours (e.g. `v2.1.140-1` if you're on Claude Code v2.1.140) and download the `system-prompts-v<version>-<iteration>.zip` asset.
+Grab the un-nerfed prompts as a release zip — no clone needed. From [Releases](https://github.com/BenIsLegit/tweakcc-system-prompts-unnerfed/releases), pick the tag whose Claude Code version matches yours (e.g. `v2.1.142-1` if you're on Claude Code v2.1.142) and download the `system-prompts-v<version>-<iteration>.zip` asset.
 
 ```bash
 # 1. Wipe any existing tweakcc prompts (tweakcc won't overwrite edited files,
@@ -101,10 +101,10 @@ system-prompts-github/
 ├── BACKGROUND.md
 ├── scripts/
 │   └── apply-unnerfs.py          # re-applies all un-nerfs after a CC version bump
-└── system-prompts/               # ~293 markdown files
+└── system-prompts/               # ~294 markdown files
     ├── system-prompt-*.md        # core behavioral instructions, tone, task guidance (~65)
     ├── system-reminder-*.md      # injected into user messages (~40)
-    ├── tool-description-*.md     # tool descriptions shown to the model (~80)
+    ├── tool-description-*.md     # tool descriptions shown to the model (~81)
     ├── tool-parameter-*.md       # parameter-level tool descriptions
     ├── agent-prompt-*.md         # subagent system prompts (~37)
     ├── data-*.md                 # reference data blobs (~40)
@@ -117,7 +117,7 @@ Counts are approximate. The full inventory is whatever `ls system-prompts/` show
 
 ## Compatibility
 
-- **Claude Code version:** Aligned with v2.1.140. Individual prompts carry `ccVersion:` frontmatter ranging from v2.0.14 to the current release. When Anthropic ships a new version, see [MAINTENANCE.md](MAINTENANCE.md) for the update workflow.
+- **Claude Code version:** Aligned with v2.1.142. Individual prompts carry `ccVersion:` frontmatter ranging from v2.0.14 to the current release. When Anthropic ships a new version, see [MAINTENANCE.md](MAINTENANCE.md) for the update workflow.
 - **Model family:** Tuned for current Claude models (Opus 4.7 / Sonnet 4.6 / Haiku 4.5). Older or smaller models might over-explain simple responses with these prompts active.
 - **Over-verbosity:** This is the main failure mode to watch for. If Claude starts writing essays in response to "what time is it?", look at `system-prompt-communication-style.md` and `system-prompt-tone-concise-output-short.md` first.
 - **Token cost:** Thorough output uses more tokens. Plan accordingly.
