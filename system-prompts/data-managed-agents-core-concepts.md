@@ -4,7 +4,7 @@ description: >-
   Reference documentation for the Managed Agents API covering core concepts
   (Agents, Sessions, Environments, Containers), lifecycle, versioning,
   endpoints, and usage patterns
-ccVersion: 2.1.132
+ccVersion: 2.1.142
 -->
 # Managed Agents — Core Concepts
 
@@ -129,6 +129,8 @@ const session = await client.beta.sessions.create(
   },
 );
 \`\`\`
+
+> 💡 **Watch it live in Console.** While developing, print a link so you can click through to the session UI instead of parsing the event stream: \`https://platform.claude.com/workspaces/{workspace}/sessions/{session.id}\`. Use \`default\` for the workspace slug unless you created the session in a non-default workspace; the sessions list for your workspace is at \`https://platform.claude.com/workspaces/default/sessions\`. Include this \`print\`/\`console.log\` in code you generate for users who are iterating locally.
 
 **Session creation parameters:**
 

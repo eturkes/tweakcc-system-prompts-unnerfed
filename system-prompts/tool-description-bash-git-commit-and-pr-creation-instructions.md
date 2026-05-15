@@ -1,11 +1,11 @@
 <!--
 name: 'Tool Description: Bash (Git commit and PR creation instructions)'
 description: Instructions for creating git commits and GitHub pull requests
-ccVersion: 2.1.84
+ccVersion: 2.1.142
 variables:
   - BASH_TOOL_NAME
   - COMMIT_CO_AUTHORED_BY_CLAUDE_CODE
-  - TODO_TOOL_OBJECT
+  - GET_TODO_TOOL_FN
   - TASK_TOOL_NAME
   - PR_GENERATED_WITH_CLAUDE_CODE
 -->
@@ -43,7 +43,7 @@ Git Safety Protocol:
 
 Important notes:
 - NEVER run additional commands to read or explore code, besides git bash commands
-- NEVER use the ${TODO_TOOL_OBJECT.name} or ${TASK_TOOL_NAME} tools
+- NEVER use the ${GET_TODO_TOOL_FN} or ${TASK_TOOL_NAME} tools
 - DO NOT push to the remote repository unless the user explicitly asks you to do so
 - IMPORTANT: Never use git commands with the -i flag (like git rebase -i or git add -i) since they require interactive input which is not supported.
 - IMPORTANT: Do not use --no-edit with git rebase commands, as the --no-edit flag is not a valid option for git rebase.
@@ -89,7 +89,7 @@ EOF
 </example>
 
 Important:
-- DO NOT use the ${TODO_TOOL_OBJECT.name} or ${TASK_TOOL_NAME} tools
+- DO NOT use the ${GET_TODO_TOOL_FN} or ${TASK_TOOL_NAME} tools
 - Return the PR URL when you're done, so the user can see it
 
 # Other common operations

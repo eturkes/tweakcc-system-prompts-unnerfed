@@ -3,7 +3,7 @@ name: 'Data: Live documentation sources'
 description: >-
   WebFetch URLs for fetching current Claude API and Agent SDK documentation from
   official sources
-ccVersion: 2.1.139
+ccVersion: 2.1.142
 -->
 # Live Documentation Sources
 
@@ -53,6 +53,7 @@ This file contains WebFetch URLs for fetching current information from platform.
 | Token Counting   | \`https://platform.claude.com/docs/en/build-with-claude/token-counting.md\`   | "Extract token counting API usage and examples"                                                         |
 | Rate Limits      | \`https://platform.claude.com/docs/en/api/rate-limits.md\`                    | "Extract current rate limits by tier and model"                                                         |
 | Errors           | \`https://platform.claude.com/docs/en/api/errors.md\`                         | "Extract HTTP error codes, meanings, and retry guidance"                                                |
+| Amazon Bedrock   | \`https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock.md\` | "Extract the AnthropicBedrockMantle client per language, \`anthropic.\`-prefixed model IDs, auth paths, feature availability, and regions" |
 | Claude Platform on AWS | \`https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws.md\` | "Extract the AnthropicAWS client per language, SigV4 auth, credential precedence, short-term API keys, workspace_id, and region requirements" |
 | Claude Platform on AWS — IAM actions | \`https://platform.claude.com/docs/en/api/claude-platform-on-aws-iam-actions.md\` | "Extract the IAM action names, resource ARNs, and policy examples required for each API capability" |
 

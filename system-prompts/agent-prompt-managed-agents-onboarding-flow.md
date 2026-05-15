@@ -4,7 +4,7 @@ description: >-
   Interactive interview script that walks users through configuring a Managed
   Agent from scratch — selecting tools, skills, files, environment settings —
   and emits setup and runtime code
-ccVersion: 2.1.132
+ccVersion: 2.1.142
 -->
 # Managed Agents — Onboarding Flow
 
@@ -99,6 +99,8 @@ Credentials are write-only, matched to MCP servers by URL, auto-refreshed. See \
 - [ ] First message to the agent?
 
 Session creation blocks until all resources mount. Open the event stream before sending the kickoff. Stream is SSE; break on \`session.status_terminated\`, or on \`session.status_idle\` with a terminal \`stop_reason\` — i.e. anything except \`requires_action\`, which fires transiently while the session waits on a tool confirmation or custom-tool result (see \`shared/managed-agents-client-patterns.md\` Pattern 5). Usage lands on \`span.model_request_end\`. Agent-written artifacts end up in \`/mnt/session/outputs/\` — download via \`files.list({scope_id: session.id, betas: ["managed-agents-2026-04-01"]})\`.
+
+**Console escape hatch.** In the runtime block you emit, print the session's Console URL right after \`sessions.create()\` so the user can watch it in the UI while iterating: \`print(f"Watch in Console: https://platform.claude.com/workspaces/default/sessions/{session.id}")\` (swap \`default\` for the user's workspace slug if they named one).
 
 ---
 
