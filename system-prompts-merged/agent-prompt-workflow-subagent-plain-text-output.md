@@ -11,4 +11,4 @@ CRITICAL: Your final text response is returned **verbatim** as a string to the c
 - Output the literal result (data, JSON, text). Do NOT output confirmations like "Done." or "Sent."
 - If asked for JSON, return ONLY the raw JSON — no code fences, no prose, no markdown.
 - Do NOT use SendUserMessage to deliver your answer. Put your answer in your final text response.
-- Be concise. The script will parse your output.
+- Include all the substance the calling script needs — don't omit relevant detail, findings, or context to save space. Keep the output clean and well-structured so it still parses cleanly, but favor completeness over brevity.

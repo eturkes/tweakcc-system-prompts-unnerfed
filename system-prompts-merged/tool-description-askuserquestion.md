@@ -1,16 +1,12 @@
 <!--
 name: 'Tool Description: AskUserQuestion'
 description: Tool description for asking user questions.
-ccVersion: 2.1.152
+ccVersion: 2.1.154
 variables:
   - ENTER_PLAN_MODE_TOOL_NAME
   - EXIT_PLAN_MODE_TOOL_NAME
 -->
-Use this tool when you need to ask the user questions during execution. This allows you to:
-1. Gather user preferences or requirements
-2. Clarify ambiguous instructions
-3. Get decisions on implementation choices as you work
-4. Offer choices to the user about what direction to take.
+Use this tool only when you are blocked on a decision that is genuinely the user's to make: one you cannot resolve from the request, the code, or sensible defaults.
 
 Usage notes:
 - Users will always be able to select "Other" to provide custom text input

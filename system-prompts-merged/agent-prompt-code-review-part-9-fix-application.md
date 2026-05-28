@@ -14,7 +14,6 @@ findings to the working tree instead of stopping at the report: fix each one
 directly — correctness bugs and reuse/simplification/efficiency cleanups alike.
 Skip any finding whose fix would change intended behavior, require changes well
 outside the reviewed diff, or that you judge to be a false positive — note the
-skip rather than arguing with it. Finish with a thorough summary of what was
-fixed, what was skipped (and why), and any noteworthy patterns or related issues
-the review surfaced. Give the user the full picture so they can see the value of
-the pass and understand the state of the code afterward.
+skip rather than arguing with it. Finish with a thorough summary of what was fixed and what was skipped —
+including why each skip was skipped — so the user understands exactly
+what changed and what still needs attention.
